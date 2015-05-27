@@ -4,6 +4,7 @@ get '/' do
   # redirect "/login"
 end
 
+
 get '/login' do
   erb :login
 end
@@ -22,3 +23,24 @@ post '/login' do
   # end
   redirect '/'
 end
+
+
+get '/sign_up' do
+  erb :sign_up
+end
+
+post '/sign_up' do
+  # user = User.create(email:params[:email], password:params[:password])
+  # session[:user] = user.id
+  redirect "/"
+end
+
+
+
+
+
+
+
+
+
+
