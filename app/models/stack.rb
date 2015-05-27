@@ -1,0 +1,3 @@
+class Stack < ActiveRecord::Base
+  # Remember to create a migration!
+end
