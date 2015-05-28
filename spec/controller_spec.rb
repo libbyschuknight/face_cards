@@ -22,6 +22,7 @@ describe "Controller" do
       end
     end
 
+
     context "if errors in session" do
 
       before do
@@ -34,19 +35,23 @@ describe "Controller" do
 
       it "renders the login page" do
         expect(last_response.body).to include("<p>If you don't have an account then sign up.</p>")
-      end
+       end
 
       it "renders an error message on the page" do
         expect(last_response.body).to include("meowmeow")
       end
 
       it "clears the session of errors" do
-        expect(session[:errors]).to be_nil
+         expect(session[:errors]).to be_nil
       end
     end
-  end
-  describe "GET/login" do
 
+  end
+
+  describe "GET/login" do
+    context "if valid request" do
+
+    end
   end
 end
 
