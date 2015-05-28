@@ -1,13 +1,20 @@
 <div class = "container">
-  <p>Begin!</p>
+  <% if session[:message] %>
+    <p><%= session[:message] %></p>
+  <% else %>
+    <p>Begin!</p>
+  <% end %>
+
 
   <div class= "container-fluid">
     <div id = "math">
-      <img src = <%= @photo %> >
+      <img src = <%= @facecard.face_url %> >
     </div>
   </div>
-  <form action="/show" method="get">
+  <form action="/guess" method="post">
     <input type="text" name="name" placeholder="first name">
+    <input type="hidden" name="id" value="<%= @facecard.id %>">
+    <input type="hidden" name="stack" value="<%= @stack.id %>">
     <input type="submit" value="Who is this?">
 
 
