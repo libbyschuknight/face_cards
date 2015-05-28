@@ -102,16 +102,16 @@ describe "Controller" do
         expect(last_response.status).to eq(302)
       end
 
-      it "does not create an user in the database" do
+      xit "does not create an user in the database" do
         expect(User.find_by(invalid_params[:email])).to be_nil
       end
 
-      it "redirects to /sign_up" do
+      xit "redirects to /sign_up" do
         full_url = last_response.original_headers["Location"]
         expect(URI(full_url).path).to eq('/sign_up')
       end
 
-      it "stores list of errors in the session" do
+      xit "stores list of errors in the session" do
         expect(session[:errors]).to be_truthy
       end
     end
