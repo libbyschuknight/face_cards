@@ -3,8 +3,13 @@
 
   <h1>EDA Face Cards</h1>
 
-
-
+  <ul>
+  <% @user_stacks.each do |stack| %>
+    <li>
+      <a href="/show/<%= stack.id %>" ><%= stack.name %></a>
+    </li>
+  <% end %>
+</ul>
 
   <form action="/logout" method="POST">
       <input type ="submit" value="logout">
