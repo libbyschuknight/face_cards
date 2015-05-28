@@ -8,6 +8,8 @@ end
 
 
 get '/login' do
+  @errors = session[:errors]
+  session[:errors] = nil
   erb :login
 end
 
