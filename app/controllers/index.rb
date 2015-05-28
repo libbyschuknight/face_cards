@@ -6,6 +6,12 @@ get '/' do
   end
 end
 
+get '/index' do
+  @user = User.find_by(id: session[:user])
+  @user_stacks = @user.stacks
+  erb :index
+end
+
 
 get '/login' do
   erb :login
@@ -52,7 +58,8 @@ post '/sign_up' do
   redirect "/"
 end
 
-get '/show' do
+get '/show/:id' do
+  @stack = Stack.find(params[:id])
   @photo = Facecard.all.sample.face_url
   erb :show
 end
