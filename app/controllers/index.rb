@@ -50,6 +50,7 @@ post '/sign_up' do
 end
 
 get '/show' do
+  @photo = Facecard.all.sample.face_url
   erb :show
 end
 
