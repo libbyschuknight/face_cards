@@ -35,6 +35,9 @@ post '/sign_up' do
   redirect "/"
 end
 
+get '/show' do
+  erb :show
+end
 
 
 
