@@ -37,10 +37,11 @@ post '/login' do
 end
 
 get '/logout' do
-  erb :index
+  redirect '/'
 end
 
 post '/logout' do
+  session.delete(:message)
   session.delete(:user)
   redirect '/'
 end
