@@ -15,13 +15,16 @@ post '/login' do
   if User.find_by(email: params[:email])
     user = User.find_by(email: params[:email])
   else
-    session[:error] = "Incorrect "
+    session[:error] = "Incorrect Credentials"
     redirect '/login'
   end
 
   if user.authenticate(params[:password])
     session[:user] = user.id
     session.delete(:error )
+  else
+    session[:error] = "Incorrect Credentials"
+    redirect '/login'
   end
   redirect '/'
 end
