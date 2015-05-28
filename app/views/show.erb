@@ -6,7 +6,9 @@
       <img src = <%= @photo %> >
     </div>
   </div>
-
+  <form action="/show" method="get">
+    <input type="text" name="name" placeholder="first name">
+    <input type="submit" value="Who is this?">
 
 
     <form action="/logout" method="POST">
