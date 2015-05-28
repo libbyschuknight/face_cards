@@ -11,13 +11,18 @@ roa = [
 
 # stack = Stack.create(name: "The Many Faces of Roa", user_id: user.id, facecard_id: facecard.id)
 
-  roa.each do |face_hash|
-    user = User.create(email: face_hash[:email], password:face_hash[:password])
+User.delete_all
+Facecard.delete_all
+Stack.delete_all
 
-    face_hash[:facecard].each do |face_info|
-      unless facecard = Facecard.find_by(face_url: face_info[:name])
-        facecard = Facecard.create(name: face_info[:name], face_url: face_info[:face_url])
-      end
-      stack = Stack.create(name: "The Many Faces of Roa", user_id: user.id, facecard_id: facecard.id)
-    end
+roa.each do |face_hash|
+
+  user = User.create(email: face_hash[:email], password:face_hash[:password])
+
+  stack = user.stacks.find_or_create_by(name: "The Many Faces of Roa")
+
+  face_hash[:facecard].each do |face_info|
+    stack.facecards.find_or_create_by(name: face_info[:name], face_url: face_info[:face_url], stack_id: stack.id)
   end
+
+end

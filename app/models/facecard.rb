@@ -1,4 +1,3 @@
 class Facecard < ActiveRecord::Base
-  belongs_to :facecard
-  belongs_to :user
+  belongs_to :stack
 end
