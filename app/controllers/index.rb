@@ -1,6 +1,6 @@
 get '/' do
   if session[:user] != nil
-    erb :index
+    redirect "/index"
   else
     redirect "/login"
   end
