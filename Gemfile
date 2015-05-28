@@ -26,3 +26,7 @@ group :test, :development do
   gem 'factory_girl'
   gem 'faker'
 end
+
+group :test do
+  gem "nyan-cat-formatter"
+end

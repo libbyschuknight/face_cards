@@ -1,6 +1,8 @@
   <%= session[:error] if session[:error] %>
 
 
+--format documentation --color
+rspec --format NyanCatFormatter
 
 
 
