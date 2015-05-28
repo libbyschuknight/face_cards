@@ -43,12 +43,10 @@ describe "Controller" do
       it "clears the session of errors" do
         expect(session[:errors]).to be_nil
       end
-
-
-
-
-
     end
+  end
+  describe "GET/login" do
+
   end
 end
 
