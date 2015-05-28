@@ -13,8 +13,15 @@ require 'rack/test'
 require 'capybara'
 require 'capybara/rspec'
 
+require 'faker'
+require 'uri'
+
 RSpec.configure do |config|
   config.include Rack::Test::Methods
+end
+
+def session
+  last_request.env['rack.session']
 end
 
 def app

@@ -13,6 +13,8 @@ get '/index' do
 end
 
 get '/login' do
+  @errors = session[:errors]
+  session[:errors] = nil
   erb :login
 end
 
@@ -43,14 +45,19 @@ post '/logout' do
   redirect '/'
 end
 
+
 get '/sign_up' do
   erb :sign_up
 end
 
 post '/sign_up' do
   user = User.create(email:params[:email], password:params[:password])
-  session[:user] = user.id
-  redirect "/"
+  if user
+    session[:user] = user.id
+    redirect '/'
+  else
+    erb :sign_up
+  end
 end
 
 # get '/show' do

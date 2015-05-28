@@ -3,6 +3,11 @@
 
   <h1>EDA Face Cards</h1>
 
+  <h2>Can you guess the name?</h2>
+
+
+
+
   <ul>
   <% @user_stacks.each do |stack| %>
     <li>
@@ -10,6 +15,7 @@
     </li>
   <% end %>
 </ul>
+
 
   <form action="/logout" method="POST">
       <input type ="submit" value="logout">
