@@ -1,16 +1,30 @@
 <div class= "container">
-  <h1>EDA Face Cards</h1>
+  <div id= "head">
+    <h1>EDA Face Cards</h1>
+  </div>
 
-<%= session[:error] if session[:error] %>
-<br>
-<br>
-  <form action="/login" method="POST">
-    Email: <input type="text" name="email" placeholder="email">
-    Password: <input type="password" name="password" placeholder="password">
-    <input type ="submit" value="login">
-  </form>
+  <div id= "main">
+    <img src= "/images/libby.png">
 
-  <p>If you don't have an account then sign up.</p>
+  </div>
+
+
+
+<div id= "footer">
+
+  <div id= "login">
+
+    <form action="/login" method="POST">
+      Email: <input type="text" name="email" placeholder="email">
+      Password: <input type="password" name="password" placeholder="password">
+      <input type ="submit" value="login">
+    </form>
+    <br>
+    <br>
+    <%= session[:error] if session[:error] %>
+
+  </div>
+    <p>If you don't have an account then sign up.</p>
   <form action="/sign_up" method="get">
       <input type="submit" value="Sign up">
   </form>
@@ -18,7 +32,7 @@
   <% if @errors %>
     <p><%= @errors %></p>
   <% end %>
-
+</div>
 </div>
 
 

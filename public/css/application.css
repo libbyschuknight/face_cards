@@ -1,9 +1,25 @@
-.container {
-  margin: 20px auto;
-  width: 600px;
-  padding: 0px 20px 20px 20px;
+* {
   border: 1px dotted black;
+}
+
+.container {
+  /*margin: 20px auto;*/
+  /*width: 600px;*/
+  /*padding: 0px 20px 20px 20px;*/
+  /*border: 1px dotted black;*/
   text-align: center;
-  background-color: #E04A3B;
+  background-color: #F1F1F1;
   /*color: #fff;*/
+}
+
+body {
+  background-color: #F1F1F1;
+}
+
+#head {
+  background-color: #E04A3B;
+}
+
+#footer {
+  background-color: #222222;
 }
