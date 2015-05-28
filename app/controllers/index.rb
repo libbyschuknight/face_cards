@@ -60,8 +60,8 @@ end
 
 get '/show/:id' do
   @stack = Stack.find(params[:id])
-  @facecard = Facecard.all.sample
-  # @facecard = Facecard.all.where(guessed: false).sample
+  # @facecard = Facecard.all.sample
+  @facecard = Facecard.all.where(guessed: false).sample
   erb :show
 end
 
@@ -70,7 +70,7 @@ post '/guess' do
   session.delete(:message)
   @facecard = Facecard.find(params[:id])
   if @facecard.name == params[:name]
-    # @facecard.guessed = true
+    @facecard.guessed = true
     session[:message] = "Correct!"
     redirect "/show/#{params[:stack]}"
   else
