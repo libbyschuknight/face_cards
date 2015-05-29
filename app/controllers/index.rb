@@ -66,11 +66,6 @@ post '/sign_up' do
   end
 end
 
-# get '/show' do
-#   redirect '/'
-# end
-
-
 get '/show/:id' do
   @stack = Stack.find(params[:id])
   #in the line below, need extra logic to only find stacks that match the name of that particular stack
@@ -84,25 +79,29 @@ get '/reset' do
     @facecard.guessed = false
     @facecard.save
   end
+
   redirect '/'
 end
 
 post '/reset' do
   session.delete(:message)
   @stack = Stack.find(params[:stack])
-  # redirect "/show/#{params[:stack]}"
+
   Facecard.all.map do |facecard|
     @facecard = facecard
     @facecard.guessed = false
     @facecard.save
   end
+
   redirect "/show/#{params[:stack]}"
 end
 
 post '/guess' do
+
   @stack = Stack.find(params[:stack])
   session.delete(:message)
   @facecard = Facecard.find(params[:id])
+
   if @facecard.name == params[:name]
     @facecard.guessed = true
     @facecard.save
@@ -112,7 +111,6 @@ post '/guess' do
     session[:message] = "BZZZZZ.\n Try Again!"
     erb :show
   end
-
 end
 
 
