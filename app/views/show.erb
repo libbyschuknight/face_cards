@@ -1,34 +1,49 @@
-<div class = "container">
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>EDA Face Cards - Sign Up</title>
+  </head>
+  <body>
+
+   <div class = "container">
 
 
-  <div id="main">
-  <% if @facecard != nil %>
-    <% if session[:message] %>
-      <p><%= session[:message] %></p>
-    <% else %>
-      <p>Begin!</p>
-    <% end %>
-  </div>
-
-
-    <img src = <%= @facecard.face_url %> >
-    <form action="/guess" method="post">
-      <input type="text" name="name" placeholder="first name">
-      <input type="hidden" name="id" value="<%= @facecard.id %>">
-      <input type="hidden" name="stack" value="<%= @stack.id %>">
-      <input type="submit" value="Who is this?">
-    </form>
-    <% end %>
-    <div id="footer">
-      <form action="/reset" method="post">
-        <input type="hidden" name="stack" value="<%= @stack.id %>">
-        <input type="submit" value="Reset Stack">
-      </form>
+      <div id="main" class="facecard">
         <br>
+        <br>
+          <br>
+         <h3> <% if @facecard != nil %>
+            <% if session[:message] %>
+              <p><%= session[:message] %></p>
+            <% else %>
+              <p>Begin!</p>
+            <% end %>
+          </h3>
+
+        <img src = <%= @facecard.face_url %> >
+
+        <form action="/guess" method="post">
+          <input type="text" name="name" placeholder="first name">
+          <input type="hidden" name="id" value="<%= @facecard.id %>">
+          <input type="hidden" name="stack" value="<%= @stack.id %>">
+          <input type="submit" value="Who is this?">
+        </form>
+        <% end %>
+        <br>
+      </div>
+
+      <div id="footer">
+        <form action="/reset" method="post">
+          <input type="hidden" name="stack" value="<%= @stack.id %>">
+          <input type="submit" value="Reset Stack">
+        </form>
+
         <br>
         <form action="/logout" method="POST">
           <input type ="submit" value="Logout">
         </form>
+
+      </div>
     </div>
-  </div>
-</div>
+  </body>
+</html>

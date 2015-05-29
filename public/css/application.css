@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,300,700);
-
+@import url(http://fonts.googleapis.com/css?family=Oleo+Script);
 * {
   /*border: 1px dotted black;*/
   margin: 0 auto;
@@ -19,11 +19,23 @@ body {
 }
 
 #title_EDA {
-  padding-top: 50px;
-  /*width: 300px;*/
-  display: block;
-  font-size: 60px;
+  display: inline-block;
+  font-size: 74px;
+  text-shadow: 2px 2px 6px #BFBFBF;
 }
+
+.header-title {
+  margin: 0 auto;
+  font-family: 'Oleo Script', cursive;
+  position: relative;
+}
+
+.logo-image {
+  position: absolute;
+  float:left;
+}
+
+
 
 #title_su {
   font-size: 34px;
@@ -33,16 +45,9 @@ body {
   background-color: #E04A3B;
   padding-left: 50px;
   padding-right: 50px;
-  padding-bottom: 39px;
+  /*padding-bottom: 39px;*/
   /*margin-bottom: 50px;*/
-}
-
-#head h1 {
-  margin: 0 auto;
-}
-
-#head img {
-  float:left;
+  text-align: center;
 }
 
 
@@ -94,6 +99,10 @@ input[type="submit"] {
   box-shadow: 0 6px 6px -6px;
 }
 
+input[type="submit"]:hover{
+    border: 1px solid #BFBFBF;color:#BFBFBF;
+}
+
 #stack_list ul{
   /*margin-top: 40px;*/
   list-style: none;
@@ -107,9 +116,16 @@ input[type="submit"] {
 }
 
 #stack_list ul li a:hover{
-  color: #FFF;
+  color: #BFBFBF;
 }
 
+.class facecard {
+  margin-top: 150px;
+}
+#main h3 {
+  font-size: 30px;
+  color:#E04A3B;
 
+}
 
 
