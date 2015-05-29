@@ -68,9 +68,29 @@ end
 
 get '/show/:id' do
   @stack = Stack.find(params[:id])
-  # @facecard = Facecard.all.sample
-  @facecard = Facecard.all.where(guessed: false).sample
+  #in the line below, need extra logic to only find stacks that match the name of that particular stack
+  @facecard = Facecard.where(guessed: false).sample
   erb :show
+end
+
+get '/reset' do
+  Facecard.all.map do |facecard|
+    @facecard = facecard
+    @facecard.guessed = false
+    @facecard.save
+  end
+  redirect '/'
+end
+
+post '/reset' do
+  @stack = Stack.find(params[:stack])
+  # redirect "/show/#{params[:stack]}"
+  Facecard.all.map do |facecard|
+    @facecard = facecard
+    @facecard.guessed = false
+    @facecard.save
+  end
+  redirect "/show/#{params[:stack]}"
 end
 
 post '/guess' do
@@ -79,6 +99,7 @@ post '/guess' do
   @facecard = Facecard.find(params[:id])
   if @facecard.name == params[:name]
     @facecard.guessed = true
+    @facecard.save
     session[:message] = "Correct!"
     redirect "/show/#{params[:stack]}"
   else
