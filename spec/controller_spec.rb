@@ -69,6 +69,7 @@ describe "Controller" do
         expect(User.find_by(email: valid_params[:email])).to be_truthy
       end
     end
+    User.destroy_all
   end
 
 
@@ -95,56 +96,26 @@ describe "Controller" do
    context "if invalid request" do
 
       before do
+        @user = User.create(invalid_params)
         post '/sign_up', invalid_params
       end
 
-      it "returns http status code of 302" do
-        expect(last_response.status).to eq(302)
+      it "returns http status code of 200" do
+        expect(last_response.status).to eq(200)
       end
 
-      xit "does not create an user in the database" do
-        expect(User.find_by(invalid_params[:email])).to be_nil
+      it "does not create an user in the database" do
+        expect(User.find_by(email: invalid_params[:email])).to be_nil
       end
 
-      xit "redirects to /sign_up" do
+      it "displays error message on invalid credentials" do
         full_url = last_response.original_headers["Location"]
-        expect(URI(full_url).path).to eq('/sign_up')
+        expect(last_response.body).to include("Sorry, those are invalid credentials.")
       end
 
-      xit "stores list of errors in the session" do
-        expect(session[:errors]).to be_truthy
-      end
     end
+    User.destroy_all
   end
-
-
-
-
-  # describe "POST/sign_up" do
-
-  #   context "if valid request" do
-
-  #     before do
-  #       @user = User.create(valid_params)
-  #       post '/login', valid_params
-  #     end
-
-  #     it "returns http status code of 302" do
-  #       expect(last_response.status).to eq(302)
-  #     end
-
-  #     it "redirects user to index page" do
-  #       full_url = last_response.original_headers["Location"]
-  #       expect(URI(full_url).path).to eq('/')
-  #     end
-
-  #     it "creates an item in the database" do
-  #       expect(User.find_by(email: valid_params[:email])).to be_truthy
-  #     end
-  #   end
-  # end
-
-
 end
 
 
