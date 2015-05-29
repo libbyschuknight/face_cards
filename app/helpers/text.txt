@@ -31,3 +31,7 @@ rspec --format NyanCatFormatter
       </div>
   </div>
 </div>
+
+#222222 dark grey
+#F1F1F1 light grey
+#E04A3B red

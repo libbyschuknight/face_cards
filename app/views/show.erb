@@ -1,29 +1,34 @@
 <div class = "container">
-<% if @facecard != nil %>
-  <% if session[:message] %>
-    <p><%= session[:message] %></p>
-  <% else %>
-    <p>Begin!</p>
-  <% end %>
 
 
-  <img src = <%= @facecard.face_url %> >
-  <form action="/guess" method="post">
-    <input type="text" name="name" placeholder="first name">
-    <input type="hidden" name="id" value="<%= @facecard.id %>">
-    <input type="hidden" name="stack" value="<%= @stack.id %>">
-    <input type="submit" value="Who is this?">
-  </form>
-<% end %>
-
-  <form action="/reset" method="post">
-    <input type="hidden" name="stack" value="<%= @stack.id %>">
-    <input type="submit" value="Reset Stack">
-  </form>
+  <div id="main">
+  <% if @facecard != nil %>
+    <% if session[:message] %>
+      <p><%= session[:message] %></p>
+    <% else %>
+      <p>Begin!</p>
+    <% end %>
+  </div>
 
 
-    <form action="/logout" method="POST">
-      <input type ="submit" value="Logout">
+    <img src = <%= @facecard.face_url %> >
+    <form action="/guess" method="post">
+      <input type="text" name="name" placeholder="first name">
+      <input type="hidden" name="id" value="<%= @facecard.id %>">
+      <input type="hidden" name="stack" value="<%= @stack.id %>">
+      <input type="submit" value="Who is this?">
     </form>
+    <% end %>
+    <div id="footer">
+      <form action="/reset" method="post">
+        <input type="hidden" name="stack" value="<%= @stack.id %>">
+        <input type="submit" value="Reset Stack">
+      </form>
+        <br>
+        <br>
+        <form action="/logout" method="POST">
+          <input type ="submit" value="Logout">
+        </form>
+    </div>
   </div>
 </div>

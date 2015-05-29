@@ -1,9 +1,115 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,700);
+
+* {
+  /*border: 1px dotted black;*/
+  margin: 0 auto;
+}
+
+
+body {
+  background-color: #F1F1F1;
+  font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif;
+}
+
+
 .container {
   margin: 20px auto;
-  width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
   text-align: center;
-  background-color: #E04A3B;
-  /*color: #fff;*/
+  background-color: #F1F1F1;
 }
+
+#title_EDA {
+  padding-top: 50px;
+  /*width: 300px;*/
+  display: block;
+  font-size: 60px;
+}
+
+#title_su {
+  font-size: 34px;
+}
+
+#head {
+  background-color: #E04A3B;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 39px;
+  /*margin-bottom: 50px;*/
+}
+
+#head h1 {
+  margin: 0 auto;
+}
+
+#head img {
+  float:left;
+}
+
+
+#main img {
+  margin: 40px;
+  box-shadow: 0 8px 50px -6px black;
+}
+
+.main_top_margin {
+  height: 300px;
+  margin-top: 100px;
+}
+
+
+#footer {
+  background-color: #222222;
+  color: #fff;
+  padding: 40px;
+  /*padding-bottom: 100px;*/
+}
+
+#login {
+  /*display: inline-block;*/
+  float:left;
+  margin-left: 50px;
+}
+
+
+#form-signup {
+  margin-top: 200px;
+}
+
+.footer_sign_up {
+  height: 100px;
+}
+
+
+.pure-form {
+  color: #000
+}
+
+input[type="submit"] {
+  padding:9px;
+  border-radius: 5px;
+  background: #fff;
+  border: none;
+  text-shadow: none;
+  color:#E04A3B;
+  box-shadow: 0 6px 6px -6px;
+}
+
+#stack_list ul{
+  /*margin-top: 40px;*/
+  list-style: none;
+  padding: 0;
+  text-decoration: none;
+}
+
+#stack_list ul li a{
+  text-decoration: none;
+  color: #E04A3B;
+}
+
+#stack_list ul li a:hover{
+  color: #FFF;
+}
+
+
+
+

@@ -1,24 +1,26 @@
 <div class= "container">
 
 
-  <h1>EDA Face Cards</h1>
+  <div id="main" class = "main_top_margin">
+    <h2>Can you guess the name?</h2>
+    <br>
+    <br>
+    <div id="stack_list">
+      <ul>
+        <% @user_stacks.each do |stack| %>
+        <li>
+          <h3><a href="/show/<%= stack.id %>" ><%= stack.name %></a></h3>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 
-  <h2>Can you guess the name?</h2>
+  <div id= "footer" class = "footer_sign_up">
 
-
-
-
-  <ul>
-  <% @user_stacks.each do |stack| %>
-    <li>
-      <a href="/show/<%= stack.id %>" ><%= stack.name %></a>
-    </li>
-  <% end %>
-</ul>
-
-
-  <form action="/logout" method="POST">
-      <input type ="submit" value="logout">
-  </form>
+    <form action="/logout" method="POST">
+        <input type ="submit" value="logout">
+    </form>
+  </div>
 
 </div>
