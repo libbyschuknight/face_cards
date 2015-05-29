@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+#printing
+gem 'awesome_print'
 # PostgreSQL driver
 gem 'pg'
 
