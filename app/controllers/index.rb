@@ -53,6 +53,9 @@ end
 
 post '/sign_up' do
   user = User.create(email:params[:email], password:params[:password])
+  #we only have 1 stack at the moment, so this adds a new user to the roa stack
+  stack = user.stacks.find_or_create_by(name: "The Many Faces of Roa")
+
   if user
     session[:user] = user.id
     redirect '/'
@@ -83,6 +86,7 @@ get '/reset' do
 end
 
 post '/reset' do
+  session.delete(:message)
   @stack = Stack.find(params[:stack])
   # redirect "/show/#{params[:stack]}"
   Facecard.all.map do |facecard|
@@ -100,10 +104,10 @@ post '/guess' do
   if @facecard.name == params[:name]
     @facecard.guessed = true
     @facecard.save
-    session[:message] = "Correct!"
+    session[:message] = "Correct!\n Here's Your Next Face..."
     redirect "/show/#{params[:stack]}"
   else
-    session[:message] = "Try Again!"
+    session[:message] = "BZZZZZ.\n Try Again!"
     erb :show
   end
 
