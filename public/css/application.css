@@ -54,6 +54,7 @@ body {
 #main img {
   margin: 40px;
   box-shadow: 0 8px 50px -6px black;
+  width: 25%;
 }
 
 .main_top_margin {
