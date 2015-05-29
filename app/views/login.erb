@@ -1,39 +1,57 @@
-<div class= "container">
-  <div id= "head">
-    <h1>EDA Face Cards</h1>
-  </div>
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>EDA Face Cards</title>
 
-  <div id= "main">
-    <img src= "/images/libby.png">
+  </head>
 
-  </div>
+  <body>
+
+    <div class= "container">
+      <div id= "head">
+
+        <img src = "images/eda_logo.png">
+        <h1 id="title_EDA">EDA's Faces</h1>
+      </div>
+
+      <div id= "main">
+        <img src= "/images/libby.png">
+
+      </div>
 
 
 
-<div id= "footer">
+    <div id= "footer">
+      <div id= "login">
 
-  <div id= "login">
+        <form class="pure-form" action="/login" method="POST" >
+            <fieldset>
 
-    <form action="/login" method="POST">
-      Email: <input type="text" name="email" placeholder="email">
-      Password: <input type="password" name="password" placeholder="password">
-      <input type ="submit" value="login">
-    </form>
-    <br>
-    <br>
-    <%= session[:error] if session[:error] %>
+                <input type="text" name="email" placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
+                <input type ="submit" value="login">
 
-  </div>
-    <p>If you don't have an account then sign up.</p>
-  <form action="/sign_up" method="get">
-      <input type="submit" value="Sign up">
-  </form>
+            </fieldset>
+        </form>
 
-  <% if @errors %>
-    <p><%= @errors %></p>
-  <% end %>
-</div>
-</div>
+        <br>
+        <br>
+        <%= session[:error] if session[:error] %>
+
+      </div>
+        <p>If you don't have an account then sign up.</p>
+      <form action="/sign_up" method="get">
+          <input type="submit" value="Sign up">
+      </form>
+
+      <% if @errors %>
+        <p><%= @errors %></p>
+      <% end %>
+    </div>
+    </div>
+
+  </body>
+</html>
 
 
 
