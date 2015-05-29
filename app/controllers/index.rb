@@ -54,12 +54,13 @@ end
 post '/sign_up' do
   user = User.create(email:params[:email], password:params[:password])
   #we only have 1 stack at the moment, so this adds a new user to the roa stack
-  stack = user.stacks.find_or_create_by(name: "The Many Faces of Roa")
 
-  if user
+  if user.valid?
+    stack = user.stacks.find_or_create_by(name: "The Many Faces of Roa")
     session[:user] = user.id
     redirect '/'
   else
+    @errors = "Sorry, those are invalid credentials."
     erb :sign_up
   end
 end
