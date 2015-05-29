@@ -56,7 +56,8 @@ body {
 }
 
 input[type="submit"] {
-  padding:30px;
+  padding:9px;
+  border-radius: 5px;
   background: #fff;
   border: none;
   text-shadow: none;
