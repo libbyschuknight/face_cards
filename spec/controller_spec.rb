@@ -86,7 +86,7 @@ describe "Controller" do
       end
 
       it "renders the sign up page" do
-        expect(last_response.body).to include("<h2>Sign Up</h2>")
+        expect(last_response.body).to include("<title>EDA Face Cards - Sign Up</title>")
       end
     end
   end
