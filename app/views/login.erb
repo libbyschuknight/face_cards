@@ -2,54 +2,49 @@
   <html>
     <head>
       <title>EDA Face Cards</title>
-
   </head>
 
   <body>
-
     <div class= "container">
-      <div id= "head">
 
-        <img src = "images/eda_logo.png">
-        <h1 id="title_EDA">EDA's Faces</h1>
-      </div>
 
       <div id= "main">
-        <img src= "/images/libby.png">
+        <img src= "/images/roa.gif">
 
       </div>
 
 
+      <div id= "footer">
+        <div id= "login">
+          <%= session[:error] if session[:error] %>
+          <br>
+          <br>
 
-    <div id= "footer">
-      <div id= "login">
-
-        <form class="pure-form" action="/login" method="POST" >
+          <form class="pure-form" action="/login" method="POST" >
             <fieldset>
-
-                <input type="text" name="email" placeholder="Email">
-                <input type="password" name="password" placeholder="Password">
-                <input type ="submit" value="login">
-
+              <input type="text" name="email" placeholder="Email">
+              <input type="password" name="password" placeholder="Password">
+              <input type ="submit" value="Login">
             </fieldset>
-        </form>
+          </form>
+          <br>
+        </div>
 
-        <br>
-        <br>
-        <%= session[:error] if session[:error] %>
+        <div id='sign-up'>
+          <p>If you don't have an account then sign up.</p>
+          <br>
+
+          <form action="/sign_up" method="get">
+              <input type="submit" value="Sign up">
+          </form>
+
+          <% if @errors %>
+            <p><%= @errors %></p>
+          <% end %>
+        </div>
 
       </div>
-        <p>If you don't have an account then sign up.</p>
-      <form action="/sign_up" method="get">
-          <input type="submit" value="Sign up">
-      </form>
-
-      <% if @errors %>
-        <p><%= @errors %></p>
-      <% end %>
     </div>
-    </div>
-
   </body>
 </html>
 

@@ -2,6 +2,7 @@ get '/' do
   if session[:user] != nil
     redirect "/index"
   else
+    session.delete(:error )
     redirect "/login"
   end
 end
